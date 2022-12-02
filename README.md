@@ -16,4 +16,4 @@ Here are some new things that I have learned so far:
 * security-related HTTP Headers and how they can play an important role by preventing common web attacks such as clickjacking & cross-site scripting (XSS).
 
 
-This project is meant to be a experimental and demonstration purposes, therefore it won't be deployed and to use it I also created the client-side web app using react. I think that's pretty much it and I will try to update when I have done with the project. Peace!
+This project is meant to be an experimental and demonstration purposes, therefore it won't be deployed and to use it I also created the client-side web app using react. I think that's pretty much it and I will try to update when I have done with the project. Peace!
