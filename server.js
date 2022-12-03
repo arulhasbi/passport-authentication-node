@@ -1,8 +1,10 @@
-const port = 3000;
+const port = 4001;
 const db = require("./db/users");
 
 const express = require("express");
 const app = express();
+
+app.set("view engine", "ejs");
 
 const morgan = require("morgan");
 const bodyParser = require("body-parser");
@@ -58,22 +60,33 @@ passport.deserializeUser(function (id, done) {
 app.use(passport.initialize());
 app.use(passport.session());
 
+app.get("/", (req, res) => {
+  if (!req.user) {
+    return res.render("home");
+  }
+  res.render("profile");
+});
+
+app.get("/login", (req, res) => {
+  res.render("login");
+});
+
 app.post(
   "/login",
   passport.authenticate("local", { failureRedirect: "/login" }),
   (req, res) => {
-    res.status(200).send("login succeed");
+    res.redirect("/");
   }
 );
 
 app.get("/logout", (req, res) => {
   req.logout((err) => {
     if (err) return next(err);
+    res.redirect("/");
   });
-  res.status(200).send("logout succeed");
 });
 
-const errorHandler = (error, req, res) => {
+const errorHandler = (err, req, res, next) => {
   if (!err.status) {
     err.status = 500;
   }
