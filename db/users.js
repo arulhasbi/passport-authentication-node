@@ -1,10 +1,26 @@
-const records = [
-  {
-    id: 1,
-    username: "arulhasbi",
-    password: "codec@demy10",
-  },
-];
+const bcrypt = require("bcrypt");
+const records = [];
+
+const addNewUser = (username, password) => {
+  return new Promise((resolve, reject) => {
+    bcrypt.genSalt(10, function (err, salt) {
+      if (err) return reject(err);
+      bcrypt.hash(password, salt, function (err, hash) {
+        if (err) return reject(err);
+        let newUser = {
+          username: username,
+          password: hash,
+        };
+        newUser = {
+          id: records.length === 0 ? 1 : records.length + 1,
+          ...newUser,
+        };
+        records.push(newUser);
+        resolve(records);
+      });
+    });
+  });
+};
 
 const findByUsername = (username, callback) => {
   process.nextTick(() => {
@@ -31,6 +47,7 @@ const findById = (id, callback) => {
 };
 
 module.exports = {
+  addNewUser,
   findByUsername,
   findById,
 };
