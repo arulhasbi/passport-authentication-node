@@ -15,7 +15,7 @@ Here are some new things that I have learned so far:
 * [bcrypt]() to hash user's password before inserting into database.
 * security-related HTTP Headers and how they can play an important role by preventing common web attacks such as clickjacking & cross-site scripting (XSS).
 
-[BLOG UPDATE] --- Hello I'm back. So, I think I have hit my objective in this project which is to demonstrate the authentication flow that includes: register, login, and logout request handlers. For the authentication method, I utilize passport.js, a cool authentication middleware library for nodeJS. I am using local development for this experimentation and try to keep it very minimal so I could keep my focus and better understanding the basic concept of authentication. For basic concept of authentication reason as well, therefore I used the local authentication strategy and there are 500+ authentication strategies provided by passport.js. Let's get right into it.
+[UPDATE] --- Hello I'm back. So, I think I have hit my objective in this project which is to demonstrate the authentication flow that includes: register, login, and logout request handlers. For the authentication method, I utilize passport.js, a cool authentication middleware library for nodeJS. I am using local development for this experimentation and try to keep it very minimal so I could keep my focus and better understanding the basic concept of authentication. For basic concept of authentication reason as well, therefore I used the local authentication strategy and there are 500+ authentication strategies provided by passport.js. Let's get right into it.
 
 I'd like to start by sharing two problems that I encountered along the way. 
 
